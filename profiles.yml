@@ -4,17 +4,17 @@ tasty_bytes:
     dev:
       type: snowflake
       account: account
-      role: engineer
+      role: CR_DATA_ENGINEER
       user: user
-      database: "{{ env_var('SNOWFLAKE_DB') }}"
-      schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
-      warehouse: "{{ env_var('SNOWFLAKE_WH') }}"
+      database: db
+      schema: schema
+      warehouse: wh
       threads: 1
 
     prod:
       type: snowflake
       account: account
-      role: engineer
+      role: CR_DATA_ENGINEER
       user: user
       database: "{{ env_var('SNOWFLAKE_DB') }}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
