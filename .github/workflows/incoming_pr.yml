@@ -39,6 +39,11 @@ jobs:
       # The -x is shorthand for --temporary-connection
       - run: snow connection test -x
 
+      - name: Set Snowflake session context
+        run: |
+          snow sql -q "USE ROLE $SNOWFLAKE_ROLE; USE WAREHOUSE DEV_ADHOC_WH; USE DATABASE $SNOWFLAKE_DB; USE SCHEMA $SNOWFLAKE_SCHEMA;"
+
+
       # The --force setting creates the object or updates it if it already exists
       # You can remove the "-- source" flag if your dbt_project.yml is at root of your repo
       - name: Create a new tester dbt project object in ${{ secrets.SNOWFLAKE_DATABASE }}.${{ secrets.SNOWFLAKE_SCHEMA }}
