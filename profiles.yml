@@ -3,12 +3,8 @@ tasty_bytes:
   outputs:
     dev:
       type: snowflake
-      #authenticator: oauth
-      #oauth_client_id: "{{ env_var('SNOWFLAKE_CLIENT_ID') }}"
-      #oauth_client_secret: "{{ env_var('SNOWFLAKE_CLIENT_SECRET') }}"
-      #token: "{{ env_var('SNOWFLAKE_REFRESH_TOKEN') }}"
       account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
-      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      role: CR_DATA_ENGINEER
       user: "{{ env_var('SNOWFLAKE_USER') }}"
       database: "{{ env_var('SNOWFLAKE_DB') }}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
@@ -17,10 +13,6 @@ tasty_bytes:
 
     prod:
       type: snowflake
-      #authenticator: oauth
-      #oauth_client_id: "{{ env_var('SNOWFLAKE_CLIENT_ID') }}"
-      #oauth_client_secret: "{{ env_var('SNOWFLAKE_CLIENT_SECRET') }}"
-      #token: "{{ env_var('SNOWFLAKE_REFRESH_TOKEN') }}"
       account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
       role: "{{ env_var('SNOWFLAKE_ROLE') }}"
       user: "{{ env_var('SNOWFLAKE_USER') }}"
