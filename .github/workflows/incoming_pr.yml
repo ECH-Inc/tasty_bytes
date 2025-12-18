@@ -46,7 +46,7 @@ jobs:
         # Since profiles.yml is in the root, we target it directly
         run: |
           sed -i "s/REPLACE_ROLE/$SNOWFLAKE_ROLE/g; \
-                  s/REPLACE_WH/$SNOWFLAKE_WH/g; \" profiles.yml
+                  s/REPLACE_WH/$SNOWFLAKE_WH/g" profiles.yml
 
       # The --force setting creates the object or updates it if it already exists
       # You can remove the "-- source" flag if your dbt_project.yml is at root of your repo
