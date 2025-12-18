@@ -6,8 +6,8 @@ tasty_bytes:
       account: "not needed"
       user: "not needed"
       role: REPLACE_ROLE
-      database: "temp_db"
-      schema: "temp_schema"
+      database: REPLACE_DB
+      schema: REPLACE_SCHEMA
       warehouse: REPLACE_WH
       threads: 1
 
