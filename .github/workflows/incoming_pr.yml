@@ -39,22 +39,22 @@ jobs:
       # The -x is shorthand for --temporary-connection
       - run: snow connection test -x
 
-      - name: Set Snowflake session context
-        run: |
-          snow sql -q "USE ROLE $SNOWFLAKE_ROLE; USE WAREHOUSE DEV_ADHOC_WH; USE DATABASE $SNOWFLAKE_DB; USE SCHEMA $SNOWFLAKE_SCHEMA;"
+      #- name: Set Snowflake session context
+      #  run: |
+      #    snow sql -q "USE ROLE $SNOWFLAKE_ROLE; USE WAREHOUSE DEV_ADHOC_WH; USE DATABASE $SNOWFLAKE_DB; USE SCHEMA $SNOWFLAKE_SCHEMA;"
 
 
       # The --force setting creates the object or updates it if it already exists
       # You can remove the "-- source" flag if your dbt_project.yml is at root of your repo
-      - name: Create a new tester dbt project object in ${{ secrets.SNOWFLAKE_DATABASE }}.${{ secrets.SNOWFLAKE_SCHEMA }}
+      - name: Create a new tester dbt project object in ${{ secrets.SNOWFLAKE_DB }}.${{ secrets.SNOWFLAKE_SCHEMA }}
         #run: snow dbt deploy my_tester_dbt_project_object_gh_action --source ./tasty_bytes --force -x
         run: snow dbt deploy my_tester_dbt_project_object_gh_action --force -x
 
       - name: List all of the snowflake dbt project objects in your account
         run: snow dbt list -x
 
-      - name: Execute run on tester dbt project object in ${{ secrets.SNOWFLAKE_DATABASE }}.${{ secrets.SNOWFLAKE_SCHEMA }}
+      - name: Execute run on tester dbt project object in ${{ secrets.SNOWFLAKE_DB }}.${{ secrets.SNOWFLAKE_SCHEMA }}
         run: snow dbt execute -x my_tester_dbt_project_object_gh_action run --target dev
 
-      - name: Execute data quality test on tester dbt project object in ${{ secrets.SNOWFLAKE_DATABASE }}.${{ secrets.SNOWFLAKE_SCHEMA }}
+      - name: Execute data quality test on tester dbt project object in ${{ secrets.SNOWFLAKE_DB }}.${{ secrets.SNOWFLAKE_SCHEMA }}
         run: snow dbt execute -x my_tester_dbt_project_object_gh_action test --target dev
