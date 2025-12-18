@@ -39,6 +39,12 @@ jobs:
       # The -x is shorthand for --temporary-connection
       - run: snow connection test -x
 
+      - name: Display Variable
+        run: |
+          echo "The role: $SNOWFLAKE_ROLE"
+          echo "The user: $SNOWFLAKE_USER"
+          echo "The db: $SNOWFLAKE_DB"
+
       #- name: Set Snowflake session context
       #  run: |
       #    snow sql -q "USE ROLE $SNOWFLAKE_ROLE; USE WAREHOUSE DEV_ADHOC_WH; USE DATABASE $SNOWFLAKE_DB; USE SCHEMA $SNOWFLAKE_SCHEMA;"
