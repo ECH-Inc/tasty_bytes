@@ -3,8 +3,8 @@ tasty_bytes:
   outputs:
     dev:
       type: snowflake
-      account: "not needed"
-      user: "not needed"
+      account: not_needed
+      user: not_needed
       role: REPLACE_ROLE
       database: REPLACE_DB
       schema: REPLACE_SCHEMA
