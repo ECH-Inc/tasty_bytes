@@ -3,9 +3,9 @@ tasty_bytes:
   outputs:
     dev:
       type: snowflake
-      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
-      role: CR_DATA_ENGINEER
-      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      account: "account"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      user: "user"
       database: "{{ env_var('SNOWFLAKE_DB') }}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
       warehouse: "{{ env_var('SNOWFLAKE_WH') }}"
@@ -13,9 +13,9 @@ tasty_bytes:
 
     prod:
       type: snowflake
-      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      account: "account"
       role: "{{ env_var('SNOWFLAKE_ROLE') }}"
-      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      user: "user"
       database: "{{ env_var('SNOWFLAKE_DB') }}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
       warehouse: "{{ env_var('SNOWFLAKE_WH') }}"
