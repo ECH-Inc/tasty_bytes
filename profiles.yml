@@ -15,8 +15,8 @@ tasty_bytes:
       type: snowflake
       account: "not needed"
       user: "not needed"
-      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
-      database: "{{ env_var('SNOWFLAKE_DB') }}"
-      schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
-      warehouse: "{{ env_var('SNOWFLAKE_WH') }}"
+      role: CR_DATA_ENGINEER
+      database: DEV_ACCESS
+      schema: REPORTING
+      warehouse: DEV_ADHOC_WH
       threads: 1
