@@ -5,10 +5,10 @@ tasty_bytes:
       type: snowflake
       account: "not needed"
       user: "not needed"
-      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
-      database: "{{ env_var('SNOWFLAKE_DB') }}"
-      schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
-      warehouse: "{{ env_var('SNOWFLAKE_WH') }}"
+      role: "temp_role"
+      database: "temp_db"
+      schema: "temp_schema"
+      warehouse: "temp_wh"
       threads: 1
 
     prod:
