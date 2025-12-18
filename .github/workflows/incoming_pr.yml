@@ -40,9 +40,11 @@ jobs:
 
       - name: Show role
         run: echo "The role is $SNOWFLAKE_ROLE"
-      - run: |
-          # Use sed to replace the placeholder with the actual secret value
-          sed -i "s/temp_role/$SNOWFLAKE_ROLE/g" ./tasty_bytes/profiles.yml
+      
+      - name: Inject Secret Role into Profile
+        # Since profiles.yml is in the root, we target it directly
+        run: |
+          sed -i "s/REPLACE_ROLE/$SNOWFLAKE_ROLE/g" profiles.yml
 
       # The --force setting creates the object or updates it if it already exists
       # You can remove the "-- source" flag if your dbt_project.yml is at root of your repo
