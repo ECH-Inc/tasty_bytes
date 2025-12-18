@@ -1,5 +1,5 @@
 tasty_bytes:
-  target: "{{ env_var('DBT_TARGET', 'dev') }}"
+  target: dev
   outputs:
     dev:
       type: snowflake
