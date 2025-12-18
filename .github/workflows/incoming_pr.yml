@@ -20,6 +20,7 @@ jobs:
       SNOWFLAKE_ROLE: ${{ vars.SNOWFLAKE_ROLE }}
       SNOWFLAKE_DATABASE: ${{ vars.SNOWFLAKE_DATABASE }}
       SNOWFLAKE_SCHEMA: ${{ vars.SNOWFLAKE_SCHEMA }}
+      SNOWFLAKE_WH: DEV_ADHOC_WH
 
     steps:
       # Check out repository code
@@ -44,7 +45,8 @@ jobs:
       - name: Inject Secret Role into Profile
         # Since profiles.yml is in the root, we target it directly
         run: |
-          sed -i "s/REPLACE_ROLE/$SNOWFLAKE_ROLE/g" profiles.yml
+          sed -i "s/REPLACE_ROLE/$SNOWFLAKE_ROLE/g; \
+                  s/REPLACE_WH/$SNOWFLAKE_WH/g; \" profiles.yml
 
       # The --force setting creates the object or updates it if it already exists
       # You can remove the "-- source" flag if your dbt_project.yml is at root of your repo

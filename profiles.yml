@@ -8,7 +8,7 @@ tasty_bytes:
       role: REPLACE_ROLE
       database: "temp_db"
       schema: "temp_schema"
-      warehouse: "temp_wh"
+      warehouse: REPLACE_WH
       threads: 1
 
     prod:
