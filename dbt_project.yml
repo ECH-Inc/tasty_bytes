@@ -15,13 +15,6 @@ snapshot-paths: [snapshots]
 ## Target
 target-path: target
 clean-targets: [target, dbt_modules]
-
-## Variables
-vars:
-  SNOWFLAKE_ROLE: CR_DATA_ENGINEER
-  SNOWFLAKE_DB: DEV_ACCESS
-  SNOWFLAKE_SCHEMA: REPORTING
-  SNOWFLAKE_WH: DEV_ADHOC_WH
   
 ## Models
 models:
