@@ -16,9 +16,10 @@ jobs:
     environment: dev # Must match the OIDC subject's environment
     env:
       SNOWFLAKE_CLI_FEATURES_ENABLE_DBT: true
+      DBT_PROFILES_DIR: ${{ github.workspace }}/.dbt
       SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-      SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
-      SNOWFLAKE_DATABASE: ${{ vars.SNOWFLAKE_DATABASE }}
+      SNOWFLAKE_ROLE: ${{ vars.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_DB: ${{ vars.SNOWFLAKE_DB }}
       SNOWFLAKE_SCHEMA: ${{ vars.SNOWFLAKE_SCHEMA }}
       SNOWFLAKE_WH: ${{ secrets.SNOWFLAKE_WH }}
 
@@ -39,18 +40,21 @@ jobs:
       # The -x is shorthand for --temporary-connection
       - run: snow connection test -x
 
+      - name: Try debuging
+        run: dbt debug --profile tasty_bytes --target dev --config-dir
+        
       - name: Show role
         run: |
           echo "The role is $SNOWFLAKE_DB"
           echo "The role is $SNOWFLAKE_SCHEMA"
       
-      - name: Inject Secret Role into Profile
-        # Since profiles.yml is in the root, we target it directly
-        run: |
-          sed -i "s/REPLACE_ROLE/$SNOWFLAKE_ROLE/g; \
-                  s/REPLACE_DB/$SNOWFLAKE_DB/g; \
-                  s/REPLACE_SCHEMA/$SNOWFLAKE_SCHEMA/g; \
-                  s/REPLACE_WH/$SNOWFLAKE_WH/g" profiles.yml
+      # - name: Inject Secret Role into Profile
+      #   # Since profiles.yml is in the root, we target it directly
+      #   run: |
+      #     sed -i "s/REPLACE_ROLE/$SNOWFLAKE_ROLE/g; \
+      #             s/REPLACE_DB/$SNOWFLAKE_DB/g; \
+      #             s/REPLACE_SCHEMA/$SNOWFLAKE_SCHEMA/g; \
+      #             s/REPLACE_WH/$SNOWFLAKE_WH/g" profiles.yml
 
       # The --force setting creates the object or updates it if it already exists
       # You can remove the "-- source" flag if your dbt_project.yml is at root of your repo
