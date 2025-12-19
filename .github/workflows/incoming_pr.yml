@@ -40,9 +40,6 @@ jobs:
       # The -x is shorthand for --temporary-connection
       - run: snow connection test -x
 
-      - name: Try debuging
-        run: dbt debug --profile tasty_bytes --target dev --config-dir
-        
       - name: Show role
         run: |
           echo "The role is $SNOWFLAKE_DB"

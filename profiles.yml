@@ -3,8 +3,8 @@ tasty_bytes:
   outputs:
     dev:
       type: snowflake
-      account: not_needed
-      user: not_needed
+      account: '_'
+      user: '_'
       role: "{{ env_var('SNOWFLAKE_ROLE') }}"
       database: "{{ env_var('SNOWFLAKE_DB') }}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
