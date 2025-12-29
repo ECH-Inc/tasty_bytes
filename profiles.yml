@@ -7,7 +7,7 @@ tasty_bytes:
       user: '_'
       role: DBT_TRANSFORMED_ROLE
       database: DEV_ACCESS
-      schema: REPORTING
+      schema: DEV
       warehouse: DEV_ADHOC_WH
       threads: 1
 
@@ -17,6 +17,6 @@ tasty_bytes:
       user: not_needed
       role: DBT_TRANSFORMED_ROLE
       database: DEV_ACCESS
-      schema: REPORTING
+      schema: DEV
       warehouse: PROD_ADHOC_WH
       threads: 1
