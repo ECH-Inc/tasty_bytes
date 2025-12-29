@@ -3,11 +3,11 @@ tasty_bytes:
   outputs:
     dev:
       type: snowflake
-      account: '_'
-      user: '_'
+      account: not_needed
+      user: not_needed
       role: DBT_TRANSFORMED_ROLE
       database: DEV_ACCESS
-      schema: DEV
+      schema: REPORTING
       warehouse: DEV_ADHOC_WH
       threads: 1
 
@@ -17,6 +17,6 @@ tasty_bytes:
       user: not_needed
       role: DBT_TRANSFORMED_ROLE
       database: DEV_ACCESS
-      schema: DEV
+      schema: REPORTING
       warehouse: PROD_ADHOC_WH
       threads: 1
