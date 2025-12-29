@@ -3,20 +3,20 @@ tasty_bytes:
   outputs:
     dev:
       type: snowflake
-      account: "not needed"
-      user: "not needed"
-      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
-      database: "{{ env_var('SNOWFLAKE_DB') }}"
-      schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
-      warehouse: "{{ env_var('SNOWFLAKE_WH') }}"
+      account: not_needed
+      user: not_needed
+      role: DBT_TRANSFORMED_ROLE
+      database: DEV_ACCESS
+      schema: REPORTING
+      warehouse: DEV_ADHOC_WH
       threads: 1
 
     prod:
       type: snowflake
-      account: "not needed"
-      user: "not needed"
-      role: CR_DATA_ENGINEER
+      account: not_needed
+      user: not_needed
+      role: DBT_TRANSFORMED_ROLE
       database: DEV_ACCESS
       schema: REPORTING
-      warehouse: DEV_ADHOC_WH
+      warehouse: PROD_ADHOC_WH
       threads: 1
